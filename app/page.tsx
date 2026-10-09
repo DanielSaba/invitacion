@@ -3,24 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 
 
-const EVENT_DATE = new Date("2026-12-20T15:00:00");
+
+const EVENT_DATE = new Date("2026-11-07T15:30:00");
 
 const EVENT_INFO = {
-  date: "20 DE DICIEMBRE DE 2026",
-  day: "DOMINGO",
-  time: "3:00 PM",
+  date: "07 DE NOVIEMBRE DE 2026",
+  day: "SABADO",
+  time: "3:30 PM",
   locationName: "Salón de eventos",
-  address: "Av. Ejemplo 123, Huancayo",
+  address: "Av. Catalina Huanca 158 - El tambo - Ref. Grifo Ciudad Universitaria",
 
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Huancayo",
+    "https://maps.app.goo.gl/3pg9XJTC5XNM9nKb6",
 
   whatsapp: "51999999999",
+  whatsapp_man: "51914238160",
 };
 
 /* =========================================================
    COMPONENTE PARA ANIMACIONES AL HACER SCROLL
 ========================================================= */
+
+
 
 function ScrollReveal({
   children,
@@ -58,6 +62,9 @@ function ScrollReveal({
     return () => observer.disconnect();
   }, []);
 
+
+  
+
   return (
     <div
       ref={elementRef}
@@ -71,6 +78,63 @@ function ScrollReveal({
       {children}
     </div>
   );
+}
+
+
+function CircularVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleVideo = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error("No se pudo reproducir el video:", error);
+      }
+    } else {
+      video.pause();
+    }
+  };
+
+  return (
+  <div className="video-player-container">
+    <div className="video-circle">
+      <video
+        ref={videoRef}
+        className="invitation-video"
+        src="/baby-shower/video.mp4"
+        playsInline
+        preload="metadata"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+      />
+
+      {!isPlaying && (
+        <button
+          type="button"
+          className="video-play-button"
+          onClick={toggleVideo}
+          aria-label="Reproducir video"
+        >
+          <span>▶</span>
+        </button>
+      )}
+    </div>
+
+    <button
+      type="button"
+      className="video-control-below"
+      onClick={toggleVideo}
+    >
+      {isPlaying ? "Ⅱ Pausar video" : "▶ Continuar video"}
+    </button>
+  </div>
+);
 }
 
 /* =========================================================
@@ -177,11 +241,22 @@ export default function Home() {
 
   const confirmAttendance = () => {
     const message = encodeURIComponent(
-      "¡Hola! 💛 Quiero confirmar mi asistencia al Baby Shower de Liam Leo. 🐝🍯"
+      "¡Hola! Lucia💛 Quiero confirmar mi asistencia al Baby Shower de Leonardo. 🐝🍯"
     );
 
     window.open(
       `https://wa.me/${EVENT_INFO.whatsapp}?text=${message}`,
+      "_blank"
+    );
+  };
+
+  const confirmAttendance_man = () => {
+    const message = encodeURIComponent(
+      "¡Hola! Omar 💛 Quiero confirmar mi asistencia al Baby Shower de Leonardo. 🐝🍯"
+    );
+
+    window.open(
+      `https://wa.me/${EVENT_INFO.whatsapp_man}?text=${message}`,
       "_blank"
     );
   };
@@ -294,7 +369,7 @@ export default function Home() {
           </p>
 
           <h2>
-            Liam Leo
+            Leonardo Vega Andrade
           </h2>
 
           <div className="name-line" />
@@ -401,7 +476,7 @@ export default function Home() {
             </h2>
 
             <div className="intro-name">
-              de <span>Liam Leo</span>
+              de <span>Leonardo Vega Andrade</span>
             </div>
 
             <div className="little-honey-line">
@@ -424,7 +499,7 @@ export default function Home() {
               amor, dulzura y mucha alegría.
               <br />
               <br />
-              ¡Nuestro pequeño Liam Leo está
+              ¡Nuestro pequeño Leonardo está
               por llegar! 💛
             </p>
 
@@ -434,56 +509,10 @@ export default function Home() {
               AUDIO
           ================================================= */}
 
-          <ScrollReveal
-            className="audio-section"
-            delay={100}
-          >
-
-            <div className="music-note-left">
-              ♪
-            </div>
-
-            <div className="music-note-right">
-              ♫
-            </div>
-
-            <p className="section-kicker">
-              UNA MELODÍA ESPECIAL
-            </p>
-
-            <h3 className="organic-title">
-              Escucha nuestra canción
-            </h3>
-
-            <audio
-              id="baby-shower-audio"
-              src="/baby-shower/audio.mp3"
-              loop
-            />
-            <img
-              src="/baby-shower/pooh-music.gif"
-              alt="winne"
-              className="gif-bee"
-            />
-            <button
-              className={`audio-button ${
-                isPlaying ? "playing" : ""
-              }`}
-              onClick={toggleAudio}
-            >
-
-              <span className="audio-button-icon">
-                {isPlaying ? "❚❚" : "▶"}
-              </span>
-
-              <span>
-                {isPlaying
-                  ? "PAUSAR MÚSICA"
-                  : "REPRODUCIR MÚSICA"}
-              </span>
-
-            </button>
-
+          <ScrollReveal className="audio-section" delay={100}>
+            <p className="section-kicker"></p>
+            <h3 className="organic-title">¡Hola! ¿Quieres conocerme?</h3>
+            <CircularVideo />
           </ScrollReveal>
 
           {/* =================================================
@@ -521,7 +550,7 @@ export default function Home() {
             <div className="parents-photo">
 
               <img
-                src="/baby-shower/mis-papitos.jpg"
+                src="/baby-shower/mis-papitos.jpeg"
                 alt="Mis papitos"
               />
 
@@ -575,11 +604,11 @@ export default function Home() {
                 </p>
 
                 <strong>
-                  20
+                  07
                 </strong>
 
                 <p className="calendar-month">
-                  DICIEMBRE
+                  NOVIEMBRE
                 </p>
 
                 <div className="calendar-line" />
@@ -791,16 +820,28 @@ export default function Home() {
               className="whatsapp-button"
               onClick={confirmAttendance}
             >
-
               <span className="whatsapp-icon">
-                ☎
+                👩
               </span>
-
               <span>
-                CONFIRMAR POR WHATSAPP
+                CONFIRMAR A MAMÁ
               </span>
 
             </button>
+
+            <button
+              className="whatsapp-button_man"
+              onClick={confirmAttendance_man}
+            >
+              <span className="whatsapp-icon">
+                👨
+              </span>
+              <span>
+                CONFIRMAR A PAPÁ
+              </span>
+
+            </button>
+
 
             <p className="confirmation-small">
               ¡Te esperamos con mucho amor!
@@ -834,7 +875,7 @@ export default function Home() {
             </p>
 
             <strong>
-              Los papitos de Liam Leo
+              Los papitos de Leonardo
             </strong>
 
             <div className="footer-hearts">
