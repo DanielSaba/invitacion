@@ -398,13 +398,11 @@ export default function Home() {
 
         <section className="name">
 
-          <p>
-            Con mucho amor esperamos a
-          </p>
-
-          <h2>
-            Leonardo Vega Andrade
-          </h2>
+          <div className="etiqueta-wrap">
+              <div className="etiqueta">
+                <span className="etiqueta-nombre">Leonardo Vega Andrade</span>
+              </div>
+          </div>
 
           <div className="name-line" />
 

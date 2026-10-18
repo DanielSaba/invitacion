@@ -264,7 +264,7 @@ button {
   font-family: var(--font-chewy), cursive;
   font-size:
     clamp(
-      52px,
+      58px,
       11vw,
       82px
     );
@@ -3395,6 +3395,7 @@ button {
 }
 
 .etiqueta-wrap {
+  margin-top: -20px;
   display: flex;
   justify-content: center;
   /* la sombra va en el contenedor porque clip-path recorta box-shadow */
@@ -3423,7 +3424,8 @@ button {
 .etiqueta-nombre {
   margin-top: 1px;
   font-family: "Chewy", "Baloo 2", cursive;
-  font-size: 48px;
+  font-size: 38px;
+  line-height: 0.9; 
   letter-spacing: 1px;
   color: #4a2c1a;
 
