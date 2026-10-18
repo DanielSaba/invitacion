@@ -261,7 +261,7 @@ button {
 
 .header h1 {
   color: #704a2b;
-
+  font-family: var(--font-chewy), cursive;
   font-size:
     clamp(
       52px,
@@ -270,8 +270,10 @@ button {
     );
 
   font-weight: 500;
-
+  
   line-height: 0.83;
+  
+  
 }
 
 .header h1 span {
@@ -427,7 +429,7 @@ button {
 
 .name h2 {
   margin-top: 3px;
-
+  font-family: var(--font-chewy), cursive;
   color: #a86f20;
 
   font-size:
@@ -1261,7 +1263,7 @@ button {
 
 .welcome-intro h2 {
   color: #754f2d;
-
+  font-family: var(--font-chewy), cursive;
   font-size:
     clamp(
       45px,
@@ -1373,7 +1375,7 @@ button {
 
 .organic-title {
   color: #76512f;
-
+  font-family: var(--font-chewy), cursive;
   font-size:
     clamp(
       35px,
@@ -1628,7 +1630,7 @@ button {
 
 .parents-section {
   position: relative;
-
+  font-family: var(--font-chewy), cursive;
   margin-top: 35px;
 
   padding:
@@ -1760,7 +1762,7 @@ button {
 
 .date-section {
   position: relative;
-
+  font-family: var(--font-chewy), cursive;
   margin-top: 65px;
 
   padding:
@@ -3298,3 +3300,29 @@ button {
   font-size: 30px;
   font-style: italic;
 }
+
+
+
+
+
+
+
+
+
+/* Pega esto al final de app/globals.css */
+.mp-wrap{text-align:center;padding:20px}
+.mp-hint{display:inline-flex;align-items:center;gap:10px;font-size:1.6rem;color:#1d1a17;margin-bottom:18px}
+.mp-hint svg{width:30px;height:30px;color:#c08a2e;animation:mp-bounce 1.4s infinite}
+@keyframes mp-bounce{50%{transform:translateY(5px)}}
+.mp-player{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:min(580px,92vw);margin:auto;padding:10px;box-sizing:border-box;
+  background:#fce08a;border:3px solid #2b2320;border-radius:999px}
+.mp-player button{border:0;background:none;cursor:pointer;color:#4a3328;padding:6px;display:grid;place-items:center;transition:transform .15s}
+.mp-player button:hover{transform:scale(1.12)}
+.mp-player svg{display:block}
+.mp-player .mp-circ{width:52px;height:52px;border:3px solid #2b2320;border-radius:50%;padding:0}
+.mp-player .mp-heart{background:#a8c99a}
+.mp-player .mp-star{background:#f5cf4a}
+.mp-player .mp-on svg{fill:currentColor}
+.mp-controls{display:flex;align-items:center;gap:34px}
+.mp-big svg{width:40px;height:40px}

@@ -1,0 +1,16 @@
+.wrap{text-align:center;padding:20px}
+.hint{display:inline-flex;align-items:center;gap:10px;font-size:1.6rem;color:#1d1a17;margin-bottom:18px}
+.hint svg{width:30px;height:30px;color:#c08a2e;animation:bounce 1.4s infinite}
+@keyframes bounce{50%{transform:translateY(5px)}}
+.player{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:min(580px,92vw);margin:auto;padding:10px;box-sizing:border-box;
+  background:#fce08a;border:3px solid #2b2320;border-radius:999px}
+.player button{border:0;background:none;cursor:pointer;color:#4a3328;padding:6px;display:grid;place-items:center;transition:transform .15s}
+.player button:hover{transform:scale(1.12)}
+.player svg{display:block}
+.circ{width:52px;height:52px;border:3px solid #2b2320 !important;border-radius:50%;padding:0 !important}
+.heart{background:#a8c99a !important}
+.star{background:#f5cf4a !important}
+.on svg{fill:currentColor}
+.controls{display:flex;align-items:center;gap:34px}
+.big svg{width:40px;height:40px}

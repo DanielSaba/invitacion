@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import BearLetterTransition from "./BearLetterTransition";
-
+import MusicPlayer from "@/components/MusicPlayer";
 
 
 const EVENT_DATE = new Date("2026-11-07T15:30:00");
@@ -387,7 +387,7 @@ export default function Home() {
           <div className="character-glow" />
 
           <img
-            src="/baby-shower/bear-honey.png"
+            src="/baby-shower/pooh10.png"
             className="bear"
             alt="Osito con miel"
           />
@@ -464,7 +464,7 @@ export default function Home() {
           <span>🍯</span>
 
           <p>
-            Una invitación hecha con mucho amor
+           
           </p>
 
           <span>🍯</span>
@@ -575,6 +575,8 @@ export default function Home() {
               ¡Nuestro pequeño Leonardo está
               por llegar! 💛
             </p>
+
+            <MusicPlayer/>
 
           </ScrollReveal>
 
