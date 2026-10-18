@@ -143,6 +143,7 @@ function CircularVideo() {
 ========================================================= */
 
 export default function Home() {
+  const [isOpening, setIsOpening] = useState(false);
   const [opened, setOpened] = useState(false);
   const [showBearTransition, setShowBearTransition] = useState(false);
 
@@ -392,28 +393,52 @@ export default function Home() {
 
         {/* SOBRE */}
 
-        <div className="envelope">
-
-          <img
-            src="/baby-shower/envelope-ultrasound.png"
-            alt="Sobre con ecografía"
-          />
-
-        </div>
+        
 
         {/* BOTÓN */}
 
-        <button
-          type="button"
-          className="open-button"
-          onClick={openInvitation}
-          disabled={showBearTransition}
-          aria-label="Abrir invitación del baby shower"
-        >
-          <span className="button-pulse" aria-hidden="true" />
-          <img src="/baby-shower/honey-seal.png" alt="" draggable={false} />
-          <span>TOCA <br /> PARA ABRIR</span>
-        </button>
+        
+    <button
+      type="button"
+      className={`open-button ${isOpening ? "is-opening" : ""}`}
+      onClick={() => {
+        if (showBearTransition || isOpening) return;
+
+        setIsOpening(true);
+
+        window.setTimeout(() => {
+          openInvitation();
+        }, 750);
+      }}
+      disabled={showBearTransition || isOpening}
+      aria-label="Toca el sello para abrir la invitación del baby shower"
+    >
+      <span className="envelope-back" aria-hidden="true" />
+
+      <span className="envelope-flap" aria-hidden="true" />
+
+      <span className="envelope-pocket" aria-hidden="true" />
+
+      <span className="envelope-seal" aria-hidden="true">
+        <span className="button-pulse" />
+        <img
+          src="/baby-shower/honey-seal.png"
+          alt=""
+          draggable={false}
+        />
+      </span>
+
+      <span className="open-label">
+        <span className="open-arrow">↓</span>
+        TOCA EL SELLO
+        <span className="open-subtitle">PARA ABRIR</span>
+      </span>
+    </button>
+
+<p className="bottom-text">
+  Una pequeña sorpresa te espera
+</p>
+
 
         <div className="bottom-text">
 
@@ -512,15 +537,13 @@ export default function Home() {
             </div>
 
             <img
-              src="/baby-shower/bear-honey.png"
+              src="/baby-shower/pooh_party.gif"
               className="welcome-bear"
               alt="Osito"
             />
 
             <p className="welcome-text">
-              Prepárate para compartir con
-              nosotros un momento lleno de
-              amor, dulzura y mucha alegría.
+              
               <br />
               <br />
               ¡Nuestro pequeño Leonardo está
@@ -585,10 +608,7 @@ export default function Home() {
             </div>
 
             <p className="parents-message">
-              Ellos esperan con mucha ilusión
-              la llegada de su pequeño y quieren
-              compartir contigo esta celebración
-              tan especial.
+              
             </p>
 
             <div className="tiny-hearts">
@@ -600,8 +620,15 @@ export default function Home() {
           {/* =================================================
               FECHA
           ================================================= */}
-
-          <ScrollReveal
+          <div className="fecha2">
+            <div>
+              <img
+              src="/baby-shower/bear_t.gif"
+              className="welcome-bear"
+              alt="Osito"
+            />
+            </div>
+            <ScrollReveal
             className="date-section"
             delay={100}
           >
@@ -659,7 +686,12 @@ export default function Home() {
 
             </div>
 
-          </ScrollReveal>
+            </ScrollReveal>
+            
+            
+
+          </div>
+          
 
           {/* =================================================
               CONTADOR
@@ -742,7 +774,7 @@ export default function Home() {
           {/* =================================================
               CAMINO / UBICACIÓN
           ================================================= */}
-
+        <div className="donde">
           <ScrollReveal
             className="location-section"
             delay={100}
@@ -756,28 +788,7 @@ export default function Home() {
               ¿Dónde será?
             </h3>
 
-            <div className="location-scene">
-
-              <div className="location-cloud cloud-a" />
-              <div className="location-cloud cloud-b" />
-
-              <div className="little-tree tree-left">
-                🌳
-              </div>
-
-              <div className="little-tree tree-right">
-                🌳
-              </div>
-
-              <div className="location-pin">
-                📍
-              </div>
-
-              <div className="location-house">
-                🏡
-              </div>
-
-            </div>
+           
 
             <div className="location-info">
 
@@ -811,6 +822,15 @@ export default function Home() {
             </a>
 
           </ScrollReveal>
+          <div>
+            <img
+              src="/baby-shower/winn.gif"
+              className="welcome-bear"
+              alt="Osito"
+            />
+          </div>
+        </div>
+          
 
           {/* =================================================
               CONFIRMACIÓN
@@ -844,32 +864,45 @@ export default function Home() {
               nuestros papitos.
             </p>
 
-            <button
-              className="whatsapp-button"
-              onClick={confirmAttendance}
-            >
-              <span className="whatsapp-icon">
-                👩
-              </span>
-              <span>
-                CONFIRMAR A MAMÁ
-              </span>
+             <div className="buttons_father">
+              <div>
+                <div>
+                  <button
+                    className="whatsapp-button"
+                    onClick={confirmAttendance}
+                  >
+                    <span className="whatsapp-icon">
+                      👩
+                    </span>
+                    <span>
+                      CONFIRMAR A MAMÁ
+                    </span>
 
-            </button>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="whatsapp-button_man"
+                    onClick={confirmAttendance_man}
+                  >
+                    <span className="whatsapp-icon">
+                      👨
+                    </span>
+                    <span>
+                      CONFIRMAR A PAPÁ
+                    </span>
 
-            <button
-              className="whatsapp-button_man"
-              onClick={confirmAttendance_man}
-            >
-              <span className="whatsapp-icon">
-                👨
-              </span>
-              <span>
-                CONFIRMAR A PAPÁ
-              </span>
-
-            </button>
-
+                  </button>
+                </div>
+              </div>
+              <div>
+                <img
+                  src="/baby-shower/pooh_corazones.gif"
+                  className="welcome-bear"
+                  alt="Osito"
+                />
+              </div>
+            </div> 
 
             <p className="confirmation-small">
               ¡Te esperamos con mucho amor!

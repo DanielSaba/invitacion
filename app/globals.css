@@ -493,119 +493,386 @@ button {
    BOTÓN ABRIR
 ========================================================= */
 
+/* CONTENEDOR DEL SOBRE */
+
 .open-button {
-
-  z-index: 20; pointer-events: auto; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none;
-
   position: relative;
+  isolation: isolate;
+  z-index: 20;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
-  gap: 9px;
+  width: 230px;
+  height: 155px;
+  margin: 10px auto 0;
+  padding: 0;
 
-  width: 190px;
-  height: 65px;
+  border: 1px solid #e6cc9f;
+  border-radius: 5px;
 
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #e6b653,
-      #b8791e
-    );
-
-  color: white;
-
-  font-family:
-    "Montserrat",
-    sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  line-height: 1.35;
-
-  letter-spacing: 1.5px;
+  background: linear-gradient(
+    145deg,
+    #fffdf6 0%,
+    #f5e5c7 100%
+  );
 
   box-shadow:
-    0 10px 24px
-    rgba(113, 72, 17, 0.25);
+    0 16px 30px rgba(113, 72, 17, 0.18),
+    0 4px 10px rgba(113, 72, 17, 0.08),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.5);
+
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+
+  transform-origin: center;
+  animation: envelopeFloat 3s ease-in-out infinite;
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.4s ease;
 }
 
-.open-button img {
-  width: 35px;
+/* PARTE TRASERA */
 
-  height: 35px;
-}
-
-.open-button:hover {
-  transform:
-    translateY(-4px)
-    rotate(-2deg);
-
-  box-shadow:
-    0 15px 30px
-    rgba(113, 72, 17, 0.3);
-}
-
-.button-pulse {
-  pointer-events: none;
+.envelope-back {
   position: absolute;
+  inset: 0;
+  z-index: 0;
 
-  inset: -7px;
+  border-radius: 4px;
 
-  border:
-    1px solid
-    rgba(194, 140, 43, 0.35);
+  background: linear-gradient(
+    135deg,
+    #fff9ec,
+    #edd5aa
+  );
+}
 
+/* SOLAPA SUPERIOR */
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95px;
+
+  z-index: 3;
+
+  background: linear-gradient(
+    160deg,
+    #f9ebd1,
+    #dfbd83
+  );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 92%
+  );
+
+  transform-origin: top center;
+  backface-visibility: hidden;
+
+  transition:
+    transform 0.55s ease,
+    opacity 0.3s ease;
+}
+
+/* PLIEGUES DEL SOBRE */
+
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+
+  z-index: 4;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    145deg,
+    #fff9ed,
+    #f0ddbb
+  );
+
+  clip-path: polygon(
+    0 35%,
+    50% 77%,
+    100% 35%,
+    100% 100%,
+    0 100%
+  );
+
+  transition: opacity 0.35s ease;
+}
+
+/* SELLO DORADO */
+
+.envelope-seal {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+
+  z-index: 6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 69px;
+  height: 69px;
+
+  border: 2px solid #fff0c7;
   border-radius: 50%;
 
-  animation:
-    buttonPulse 2.2s
-    ease-out
-    infinite;
+  background: radial-gradient(
+    circle at 32% 25%,
+    #f6d98e,
+    #c18a32 65%,
+    #945c19 100%
+  );
+
+  box-shadow:
+    0 5px 12px rgba(103, 63, 15, 0.28),
+    inset 0 0 0 3px rgba(255, 245, 210, 0.35);
+
+  transform: translate(-50%, -50%);
+
+  animation: sealBounce 1.8s ease-in-out infinite;
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.3s ease;
+}
+
+.envelope-seal img {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+  width: 43px;
+  height: 43px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* HALO DEL SELLO */
+
+.button-pulse {
+  position: absolute;
+  inset: -9px;
+
+  z-index: 1;
+
+  border: 1px solid rgba(194, 140, 43, 0.7);
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation: buttonPulse 1.8s ease-out infinite;
+}
+
+/* TEXTO DEL BOTÓN */
+
+.open-label {
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  left: 0;
+
+  z-index: 7;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+
+  color: #8f6228;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  line-height: 1.4;
+
+  pointer-events: none;
+}
+
+.open-arrow {
+  font-size: 15px;
+  line-height: 1;
+
+  animation: arrowNudge 1s ease-in-out infinite;
+}
+
+.open-subtitle {
+  font-size: 8px;
+  letter-spacing: 2.2px;
+}
+
+/* EFECTO AL PASAR EL RATÓN */
+
+.open-button:hover {
+  box-shadow:
+    0 21px 35px rgba(113, 72, 17, 0.23),
+    0 5px 12px rgba(113, 72, 17, 0.1);
+}
+
+.open-button:hover .envelope-seal {
+  box-shadow:
+    0 7px 17px rgba(103, 63, 15, 0.35),
+    inset 0 0 0 3px rgba(255, 245, 210, 0.45);
+}
+
+/* EFECTO AL PRESIONAR */
+
+.open-button:active:not(.is-opening) {
+  transform: scale(0.96);
+}
+
+.open-button:focus-visible {
+  outline: 3px solid #bd8b43;
+  outline-offset: 6px;
+}
+
+/* APERTURA DEL SOBRE */
+
+.open-button.is-opening {
+  animation: envelopeOpen 0.75s ease-in forwards;
+  pointer-events: none;
+}
+
+.open-button.is-opening .envelope-flap {
+  transform: rotateX(180deg);
+  opacity: 0.2;
+}
+
+.open-button.is-opening .envelope-seal {
+  animation: sealRelease 0.35s ease-in forwards;
+}
+
+.open-button.is-opening .button-pulse {
+  animation: none;
+  opacity: 0;
+}
+
+.open-button.is-opening .envelope-pocket {
+  opacity: 0.65;
+}
+
+/* TEXTO INFERIOR */
+
+.bottom-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  margin-top: 23px;
+  padding: 0 12px;
+
+  color: #9a754d;
+
+  font-family: "Georgia", serif;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ANIMACIONES */
+
+@keyframes envelopeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes sealBounce {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -53%) scale(1.05);
+  }
 }
 
 @keyframes buttonPulse {
-
   0% {
-    transform: scale(0.92);
-
+    transform: scale(0.88);
     opacity: 0.8;
   }
 
   100% {
-    transform: scale(1.15);
-
+    transform: scale(1.4);
     opacity: 0;
   }
 }
 
-.bottom-text {
-  display: flex;
+@keyframes arrowNudge {
+  0%, 100% {
+    transform: translateY(0);
+  }
 
-  align-items: center;
-
-  gap: 9px;
-
-  margin-top: 20px;
-
-  color: #9a754d;
-
-  font-size: 13px;
-
-  font-style: italic;
+  50% {
+    transform: translateY(3px);
+  }
 }
+
+@keyframes envelopeOpen {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateY(-5px) scale(1.04);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-12px) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes sealRelease {
+  to {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* REDUCIR MOVIMIENTO SI EL USUARIO LO PREFIERE */
+
+@media (prefers-reduced-motion: reduce) {
+  .open-button,
+  .envelope-seal,
+  .button-pulse,
+  .open-arrow {
+    animation: none;
+  }
+
+  .envelope-flap,
+  .envelope-seal,
+  .envelope-pocket {
+    transition-duration: 0.01ms;
+  }
+}
+
 
 
 /* =========================================================
@@ -2890,4 +3157,23 @@ button {
   font-size: 15px;
   cursor: pointer;
   z-index: 2;
+}
+
+.fecha2{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.donde{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.buttons_father{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
