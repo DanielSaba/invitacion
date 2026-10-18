@@ -3235,7 +3235,7 @@ button {
 @keyframes beeVisit {
   0% {
     right: -10px;
-    top: 75px;
+    top: 120px;
     opacity: 0;
     transform: rotate(-10deg);
   }
@@ -3244,7 +3244,7 @@ button {
   }
   35% {
     right: 95px;
-    top: 50px;
+    top: 70px;
     transform: rotate(12deg);
   }
   55% {
@@ -3254,7 +3254,7 @@ button {
   }
   75% {
     right: 115px;
-    top: 65px;
+    top: 95px;
     opacity: 1;
     transform: rotate(10deg);
   }
