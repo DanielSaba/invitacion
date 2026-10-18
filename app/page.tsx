@@ -483,6 +483,21 @@ export default function Home() {
         }`}
       >
 
+        {/* PANAL EN LA SEGUNDA PANTALLA */}
+<div className="corner-honey-scene welcome-honey-scene" aria-hidden="true">
+  <img
+    src="/baby-shower/panal_s.png"
+    alt=""
+    className="corner-honeycomb"
+  />
+
+  <img
+    src="/baby-shower/bee.png"
+    alt=""
+    className="corner-bee"
+  />
+</div>
+
         {/* DECORACIONES FLOTANTES */}
 
         <div className="floating-decoration floating-bee-1">
@@ -547,11 +562,20 @@ export default function Home() {
             </p>
 
             <h2>
-              La dulce aventura
+              La dulce espera <br />
+              está por terminar, <br />
+              te invito a:
             </h2>
 
             <div className="intro-name">
-              de <span>Leonardo Vega Andrade</span>
+              <svg viewBox="0 0 500 20" className="arco">
+                <path id="curva" d="M 40,190 A 200,200 0 0 1 460,190" fill="none" />
+                <text>
+                  <textPath href="#curva" startOffset="50%" textAnchor="middle">
+                    My Baby Shower
+                  </textPath>
+                </text>
+              </svg>
             </div>
 
             <div className="little-honey-line">
@@ -563,10 +587,16 @@ export default function Home() {
             </div>
 
             <img
-              src="/baby-shower/pooh_party.gif"
+              src="/baby-shower/pooh10.png"
               className="welcome-bear"
               alt="Osito"
             />
+
+            <div className="etiqueta-wrap">
+              <div className="etiqueta">
+                <span className="etiqueta-nombre">Leonardo</span>
+              </div>
+            </div>
 
             <p className="welcome-text">
               
@@ -884,12 +914,12 @@ export default function Home() {
             </h3>
 
             <p className="confirmation-text">
-              Tu presencia hará que este día
-              sea todavía más especial.
+              Nos encantará que nos
+              acompañes. Por favor,
+                confirma tu asistencia.
+              
               <br />
-              <br />
-              Confirma tu asistencia con
-              nuestros papitos.
+              
             </p>
 
              <div className="buttons_father">
@@ -932,10 +962,6 @@ export default function Home() {
               </div>
             </div> 
 
-            <p className="confirmation-small">
-              ¡Te esperamos con mucho amor!
-            </p>
-
           </ScrollReveal>
 
           {/* =================================================
@@ -953,18 +979,31 @@ export default function Home() {
               🐝
             </div>
 
-            <img
-              src="/baby-shower/bear-honey.png"
-              alt=""
-              className="footer-bear"
-            />
+            <div className="gracias_t">
+              <div>
+                 <img
+                  src="/baby-shower/regalo.png"
+                  alt=""
+                  className="footer-bear"
+                />
+              </div>
+              <div>
+                <p>
+                  Un presente para <br/>
+                  nuetro bebito será <br/>
+                  bienvenido 
+                </p>
+              </div>
+            </div>
+           
 
-            <p>
-              Con mucho amor,
-            </p>
+            
 
-            <strong>
-              Los papitos de Leonardo
+            <strong >
+              <h1 className="te_esperamos">
+              Te esperamos
+
+              </h1>
             </strong>
 
             <div className="footer-hearts">
