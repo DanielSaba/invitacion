@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import BearLetterTransition from "./BearLetterTransition";
 
 
 
@@ -143,6 +144,19 @@ function CircularVideo() {
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
+  const [showBearTransition, setShowBearTransition] = useState(false);
+
+  const openInvitation = () => {
+    if (opened || showBearTransition) return;
+
+    setShowBearTransition(true);
+
+    // La animación dura aproximadamente 9 segundos; después se revela la invitación.
+    window.setTimeout(() => {
+      setShowBearTransition(false);
+      setOpened(true);
+    }, 9000);
+  };
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -389,7 +403,17 @@ export default function Home() {
 
         {/* BOTÓN */}
 
-        <button type="button" className="open-button" onClick={() => setOpened(true)} onTouchEnd={() => setOpened(true)} aria-label="Abrir invitación del baby shower" > <span className="button-pulse" aria-hidden="true" /> <img src="/baby-shower/honey-seal.png" alt="" draggable={false} /> <span> TOCA <br /> PARA ABRIR </span> </button>
+        <button
+          type="button"
+          className="open-button"
+          onClick={openInvitation}
+          disabled={showBearTransition}
+          aria-label="Abrir invitación del baby shower"
+        >
+          <span className="button-pulse" aria-hidden="true" />
+          <img src="/baby-shower/honey-seal.png" alt="" draggable={false} />
+          <span>TOCA <br /> PARA ABRIR</span>
+        </button>
 
         <div className="bottom-text">
 
@@ -546,6 +570,10 @@ export default function Home() {
             <h3 className="organic-title">
               Mis papitos
             </h3>
+
+            <h4 className="organic-title">
+              Omar Y Lucia
+            </h4>
 
             <div className="parents-photo">
 
@@ -887,6 +915,8 @@ export default function Home() {
         </div>
 
       </section>
+
+      {showBearTransition && <BearLetterTransition />}
 
     </main>
   );

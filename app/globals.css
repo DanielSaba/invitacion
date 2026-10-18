@@ -1376,58 +1376,56 @@ button {
   margin-bottom: 22px;
 }
 
+
+/* FOTO CON BORDES DE PAPEL ROTO */
 .parents-photo {
   position: relative;
-
-  width:
-    min(
-      420px,
-      92vw
-    );
-
+  width: min(420px, 92vw);
   margin: 0 auto;
+  padding: 12px;
+  background: #fffdf5;
 
-  padding: 10px;
+  /* Bordes irregulares estilo papel rasgado */
+ clip-path: polygon(
+  4% 3%, 12% 5%, 18% 1%, 25% 4%,
+  32% 2%, 39% 6%, 47% 2%, 54% 5%,
+  62% 1%, 69% 4%, 77% 2%, 84% 6%,
+  92% 3%, 97% 8%,
+  95% 16%, 99% 23%, 96% 31%,
+  100% 39%, 96% 47%, 99% 55%,
+  95% 63%, 98% 71%, 94% 79%,
+  97% 87%, 91% 96%,
+  83% 94%, 76% 99%, 68% 95%,
+  60% 98%, 52% 94%, 44% 99%,
+  36% 95%, 28% 98%, 20% 94%,
+  12% 97%, 4% 92%,
+  6% 83%, 1% 75%, 5% 66%,
+  1% 58%, 4% 49%, 0% 41%,
+  5% 33%, 2% 24%, 6% 16%
+);
 
-  background: #fffdf6;
-
-  border-radius:
-    4px
-    7px
-    5px
-    8px;
-
-  box-shadow:
-    0 14px 25px
-    rgba(82, 52, 22, 0.15);
-
-  transform:
-    rotate(-1.4deg);
+  filter: drop-shadow(0 12px 12px rgba(82, 52, 22, 0.18));
+  transform: rotate(-1deg);
 }
 
+/* Marco interior delicado */
 .parents-photo::before {
   content: "";
-
   position: absolute;
-
-  inset: 6px;
-
-  border:
-    1px solid
-    rgba(187, 139, 62, 0.25);
-
+  inset: 10px;
+  border: 1px solid rgba(187, 139, 62, 0.4);
   pointer-events: none;
+  z-index: 2;
 }
 
+/* Fotografía */
 .parents-photo img {
   display: block;
-
   width: 100%;
-
   height: auto;
-
   object-fit: cover;
 }
+
 
 .paper-tape {
   position: absolute;
