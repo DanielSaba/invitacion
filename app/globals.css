@@ -504,8 +504,8 @@ button {
   align-items: center;
   justify-content: center;
 
-  width: 230px;
-  height: 155px;
+  width: 250px;
+  height: 170px;
   margin: 10px auto 0;
   padding: 0;
 
@@ -2926,8 +2926,8 @@ button {
   }
 
   .open-button {
-    width: 175px;
-    height: 60px;
+    width: 250px;
+    height: 140px;
   }
 
   .welcome-content {
@@ -3163,6 +3163,7 @@ button {
   display: flex;
   text-align: center;
   align-items: center;
+  justify-content: center;
 }
 
 .donde{
