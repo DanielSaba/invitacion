@@ -79,7 +79,7 @@ export default function BearLetterTransition() {
               <g fill="#7a3b52" stroke="none" textAnchor="middle" fontFamily="Georgia,serif">
                 <text className="bt-line bt-line-one" x="200" y="330" fontSize="15" fontStyle="italic">Para ti</text>
                 <text className="bt-line bt-line-two" x="200" y="353" fontSize="11.5">con mucho cariño,</text>
-                <text className="bt-line bt-line-three" x="200" y="372" fontSize="11.5">un abrazo de oso</text>
+                <text className="bt-line bt-line-three" x="200" y="372" fontSize="11.5"></text>
               </g>
               <path className="bt-heart" d="M200 421c-24-17-32-32-19-42 9-6 17-2 19 6 2-8 10-12 19-6 13 10 5 25-19 42z" fill="#ff5c7c" stroke="none" />
             </g>

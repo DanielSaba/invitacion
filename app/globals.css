@@ -708,14 +708,14 @@ button {
 }
 
 .open-arrow {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1;
 
   animation: arrowNudge 1s ease-in-out infinite;
 }
 
 .open-subtitle {
-  font-size: 8px;
+  font-size: 15px;
   letter-spacing: 2.2px;
 }
 
@@ -1961,7 +1961,7 @@ button {
     "Montserrat",
     sans-serif;
 
-  font-size: 10px;
+  font-size: 18px;
 
   letter-spacing: 1px;
 
@@ -1978,7 +1978,7 @@ button {
 .countdown-section {
   position: relative;
 
-  margin-top: 60px;
+  margin-top: 10px;
 
   padding:
     42px
@@ -2389,7 +2389,7 @@ button {
     "Montserrat",
     sans-serif;
 
-  font-size: 9px;
+  font-size: px;
 
   font-weight: 600;
 
@@ -2457,7 +2457,7 @@ button {
 .confirmation-section {
   position: relative;
 
-  margin-top: 65px;
+  margin-top: 30px;
 
   padding:
     45px
@@ -3164,12 +3164,14 @@ button {
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin-top: -40px;
 }
 
 .donde{
   display: flex;
   text-align: center;
   align-items: center;
+  margin-top: -40px;
 }
 
 .buttons_father{
@@ -3290,4 +3292,9 @@ button {
     animation: none;
     opacity: 1;
   }
+}
+
+.organic-title2{
+  font-size: 30px;
+  font-style: italic;
 }

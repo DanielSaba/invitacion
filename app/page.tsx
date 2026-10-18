@@ -620,7 +620,7 @@ export default function Home() {
               Mis papitos
             </h3>
 
-            <h4 className="organic-title">
+            <h4 className="organic-title2">
               Omar Y Lucia
             </h4>
 
