@@ -148,16 +148,16 @@ export default function Home() {
   const [showBearTransition, setShowBearTransition] = useState(false);
 
   const openInvitation = () => {
-    if (opened || showBearTransition) return;
+  if (opened || showBearTransition) return;
 
-    setShowBearTransition(true);
+  setShowBearTransition(true);
 
-    // La animación dura aproximadamente 9 segundos; después se revela la invitación.
-    window.setTimeout(() => {
-      setShowBearTransition(false);
-      setOpened(true);
-    }, 9000);
-  };
+  window.setTimeout(() => {
+    setShowBearTransition(false);
+    setOpened(true);
+    setIsOpening(false);
+  }, 9000);
+};
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -282,6 +282,25 @@ export default function Home() {
         opened ? "invitation-opened" : ""
       }`}
     >
+
+
+      <div className="corner-honey-scene" aria-hidden="true">
+        <img
+          src="/baby-shower/panal_s.png"
+          alt=""
+          className="corner-honeycomb"
+        />
+
+        <img
+          src="/baby-shower/bee.png"
+          alt=""
+          className="corner-bee"
+        />
+      </div>
+
+
+
+
       {/* =================================================
           TEXTURA
       ================================================= */}
@@ -500,13 +519,20 @@ export default function Home() {
 
         {/* BOTÓN CERRAR */}
 
+        
         <button
+          type="button"
           className="close-invitation"
-          onClick={() => setOpened(false)}
+          onClick={() => {
+            setOpened(false);
+            setIsOpening(false);
+            setShowBearTransition(false);
+          }}
           aria-label="Cerrar invitación"
         >
           ×
         </button>
+
 
         <div className="welcome-content">
 

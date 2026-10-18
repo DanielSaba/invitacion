@@ -3178,3 +3178,116 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+
+
+
+
+/* PANAL DECORATIVO DE LA ESQUINA */
+.corner-honey-scene {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 170px;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.corner-honeycomb {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  top: -28px;
+  right: -22px;
+  opacity: 0;
+  animation: honeycombEnter 1.2s ease-out 0.3s forwards,
+             honeycombFloat 4s ease-in-out 1.5s infinite;
+}
+
+.corner-bee {
+  position: absolute;
+  width: 48px;
+  height: auto;
+  top: 120px;
+  right: -60px;
+  opacity: 0;
+  animation: beeVisit 7s ease-in-out 1.5s infinite;
+}
+
+@keyframes honeycombEnter {
+  from {
+    opacity: 0;
+    transform: translate(35px, -25px) rotate(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes honeycombFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes beeVisit {
+  0% {
+    right: -10px;
+    top: 75px;
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  12% {
+    opacity: 10;
+  }
+  35% {
+    right: 95px;
+    top: 50px;
+    transform: rotate(12deg);
+  }
+  55% {
+    right: 65px;
+    top: 95px;
+    transform: rotate(-8deg);
+  }
+  75% {
+    right: 115px;
+    top: 65px;
+    opacity: 1;
+    transform: rotate(10deg);
+  }
+  100% {
+    right: -60px;
+    top: 75px;
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 390px) {
+  .corner-honey-scene {
+    width: 180px;
+    height: 160px;
+  }
+
+  .corner-honeycomb {
+    width: 95px;
+    right: -20px;
+    top: -18px;
+  }
+
+  .corner-bee {
+    width: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corner-honeycomb,
+  .corner-bee {
+    animation: none;
+    opacity: 1;
+  }
+}
