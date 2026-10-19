@@ -599,9 +599,7 @@ export default function Home() {
             <p className="welcome-text">
               
               <br />
-              <br />
-              ¡Nuestro pequeño Leonardo está
-              por llegar! 💛
+              
             </p>
 
             <MusicPlayer/>
@@ -622,13 +620,7 @@ export default function Home() {
               SEPARADOR
           ================================================= */}
 
-          <div className="story-divider">
-            <span>🌼</span>
-            <div />
-            <span>🐝</span>
-            <div />
-            <span>🌼</span>
-          </div>
+         
 
           {/* =================================================
               MIS PAPITOS
@@ -642,9 +634,7 @@ export default function Home() {
             <div className="paper-tape tape-left" />
             <div className="paper-tape tape-right" />
 
-            <p className="section-kicker">
-              CON MUCHO AMOR
-            </p>
+            
 
             <h3 className="organic-title">
               Mis papitos
@@ -667,9 +657,7 @@ export default function Home() {
               
             </p>
 
-            <div className="tiny-hearts">
-              ♥ ♥ ♥
-            </div>
+           
 
           </ScrollReveal>
 
@@ -677,75 +665,19 @@ export default function Home() {
               FECHA
           ================================================= */}
           <div className="fecha2">
-            <div>
-              <img
-              src="/baby-shower/bear_t.gif"
-              className="welcome-bear"
-              alt="Osito"
-            />
-            </div>
-            <ScrollReveal
-            className="date-section"
-            delay={100}
-          >
+            <div className="fecha-dia">15</div>
 
-            <div className="sun-rays">
-              ✦
+            <div className="fecha-texto">
+              <span>Sábado</span>
+              <span>Agosto</span>
             </div>
 
-            <p className="section-kicker">
-              GUARDA ESTA FECHA
-            </p>
+            <div className="fecha-divisor"></div>
 
-            <h3 className="organic-title">
-              El gran día
-            </h3>
-
-            <div className="calendar-shape">
-
-              <div className="calendar-top">
-                <span />
-                <span />
-              </div>
-
-              <div className="calendar-content">
-
-                <p className="calendar-day">
-                  {EVENT_INFO.day}
-                </p>
-
-                <strong>
-                  07
-                </strong>
-
-                <p className="calendar-month">
-                  NOVIEMBRE
-                </p>
-
-                <div className="calendar-line" />
-
-                <p className="calendar-year">
-                  2026
-                </p>
-
-              </div>
-
+            <div className="fecha-hora">
+              <span className="hora-num">4:00</span>
+              <span className="hora-pm">PM</span>
             </div>
-
-            <div className="event-time">
-
-              <span>🕒</span>
-
-              <strong>
-                {EVENT_INFO.time}
-              </strong>
-
-            </div>
-
-            </ScrollReveal>
-            
-            
-
           </div>
           
 
@@ -762,12 +694,10 @@ export default function Home() {
             <div className="cloud cloud-two" />
 
             <p className="section-kicker">
-              LA CUENTA REGRESIVA
+              SOLO FALTA
             </p>
 
-            <h3 className="organic-title">
-              Cada vez falta menos
-            </h3>
+            
 
             <div className="countdown">
 
@@ -897,11 +827,7 @@ export default function Home() {
             delay={100}
           >
 
-            <div className="confirmation-bees">
-              🐝
-              <span>💛</span>
-              🐝
-            </div>
+            
 
             <p className="section-kicker">
               Y LO MÁS IMPORTANTE...
