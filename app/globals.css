@@ -3519,6 +3519,16 @@ button {
 }
 
 @media (max-width: 450px) {
+  .fecha{color: red;}
+  .fecha { gap: 8px; }
+  .fecha-dia { font-size: 80px; }
+  .fecha-texto { font-size: 20px; }
+  .fecha-divisor { height: 80px; }
+  .hora-num { font-size: 35px; }
+  .hora-pm { font-size: 20px; }
+}
+
+@media (max-width: 450px) {
   .welcome-bear{
     width: 150px;
   }
