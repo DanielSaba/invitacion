@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 
 // Archivos dentro de la carpeta /public/musica/
-const CANCIONES = ["/musica/audio1.mp3", "/musica/cancion2.mp3"];
+const CANCIONES = ["/musica/audio1.mp3"];
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);

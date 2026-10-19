@@ -15,10 +15,10 @@ const EVENT_INFO = {
   address: "Av. Catalina Huanca 158 - El tambo - Ref. Grifo Ciudad Universitaria",
 
   mapsUrl:
-    "https://maps.app.goo.gl/3pg9XJTC5XNM9nKb6",
+    "https://maps.app.goo.gl/HodKQ7fojVMY64Hf9?g_st=aw",
 
-  whatsapp: "51999999999",
-  whatsapp_man: "51914238160",
+  whatsapp: "51936804529",
+  whatsapp_man: "51953528629",
 };
 
 /* =========================================================
