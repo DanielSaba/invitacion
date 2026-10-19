@@ -665,17 +665,17 @@ export default function Home() {
               FECHA
           ================================================= */}
           <div className="fecha2">
-            <div className="fecha-dia">15</div>
+            <div className="fecha-dia">07</div>
 
             <div className="fecha-texto">
               <span>Sábado</span>
-              <span>Agosto</span>
+              <span>Noviembre</span>
             </div>
 
             <div className="fecha-divisor"></div>
 
             <div className="fecha-hora">
-              <span className="hora-num">4:00</span>
+              <span className="hora-num">3:30</span>
               <span className="hora-pm">PM</span>
             </div>
           </div>
@@ -914,7 +914,7 @@ export default function Home() {
               <div>
                 <p>
                   Un presente para <br/>
-                  nuetro bebito será <br/>
+                  nuestro bebito será <br/>
                   bienvenido 
                 </p>
               </div>
