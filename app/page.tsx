@@ -148,15 +148,10 @@ export default function Home() {
   const [showBearTransition, setShowBearTransition] = useState(false);
 
   const openInvitation = () => {
-  if (opened || showBearTransition) return;
+  if (opened) return;
 
-  setShowBearTransition(true);
-
-  window.setTimeout(() => {
-    setShowBearTransition(false);
-    setOpened(true);
-    setIsOpening(false);
-  }, 9000);
+  setOpened(true);
+  setIsOpening(false);
 };
 
   const [isPlaying, setIsPlaying] = useState(false);
